@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scene version="0.5.0">
+	<!-- Light source -->
+	<shape type="sphere">
+		<point name="center" x="4.3" y="18" z="5.2"/>
+		<float name="radius" value="2"/>
+
+		<emitter type="area">
+			<spectrum name="radiance" value="45"/>
+		</emitter>
+
+		<bsdf type="diffuse"/>
+	</shape>
+
+	<!-- Ground plane -->
+	<shape type="obj">
+		<string name="filename" value="plane.obj"/>
+		<transform name="toWorld">
+			<translate x="0" y="-3.0" z="0"/>
+		</transform>
+
+		<bsdf type="diffuse">
+			<rgb name="diffuseReflectance" value="1.0, 1.0, 1.0"/>
+			<spectrum name="reflectance" value="0.5"/>
+		</bsdf>
+	</shape>
+
+	<sensor type="perspective">
+		<string name="fovAxis" value="smaller"/>
+		<float name="focusDistance" value="10000"/>
+		<transform name="toWorld">
+			<scale x="-1"/>
+			<scale x="-1"/>
+			<lookAt target="0.0, 0.0, 0.0" origin="0.0, 3.0, 5.0" up="0.0, 1.0, 0.0"/>
+		</transform>
+		<float name="fov" value="45"/>
+
+		<sampler type="ldsampler">
+			<!-- High quality settings: 
+			    <integer name="sampleCount" value="256"/>
+			-->
+			<!-- Settings for faster render time (but less appealing output) -->
+			<integer name="sampleCount" value="32"/>
+		</sampler>
+
+		<film type="ldrfilm">
+			<integer name="width" value="1024"/>
+			<integer name="height" value="768"/>
+			<boolean name="banner" value="false"/>
+			<string name="pixelFormat" value="rgb"/>
+
+			<rfilter type="gaussian"/>
+		</film>
+	</sensor>
+	<!-- cloth -->
+	<shape type="obj">
+		<string name="filename" value="mesh.obj"/>
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<rgb name="diffuseReflectance" value="0.2, 0.6, 0.3"/>
+			</bsdf>
+		</bsdf>
+	</shape>
+
+	<!-- obstacles -->
+	<!-- <shape type="obj">
+		<string name="filename" value="obs_00.obj"/>
+		<transform name="trafoProperty"> 
+			<rotate angle="0.000000" x="1.000000" y="1.000000" z="1.000000"/>
+			<scale value="1.000000"/>
+			<translate x="-1.000000" y="-1.500000" z="1.000000"/>
+		</transform>	
+		<bsdf type="diffuse">
+			<rgb name="diffuseReflectance" value="0.1, 0.75, 0.1"/>
+		</bsdf>	
+	</shape> -->
+</scene>
