@@ -2,7 +2,7 @@
 <scene version="0.5.0">
 	<!-- Light source -->
 	<shape type="sphere">
-		<point name="center" x="4.3" y="18" z="5.2"/>
+		<point name="center" x="4.3" y="12" z="10.2"/>
 		<float name="radius" value="2"/>
 
 		<emitter type="area">
@@ -31,7 +31,7 @@
 		<transform name="toWorld">
 			<scale x="-1"/>
 			<scale x="-1"/>
-			<lookAt target="0.0, 0.0, 0.0" origin="0.0, 3.0, 5.0" up="0.0, 1.0, 0.0"/>
+			<lookAt target="0.0, 0.0, 0.0" origin="0.0, 2.0, 5.0" up="0.0, 1.0, 0.0"/>
 		</transform>
 		<float name="fov" value="45"/>
 
@@ -39,8 +39,8 @@
 			<!-- High quality settings: 
 			    <integer name="sampleCount" value="256"/>
 			-->
-			<!-- Settings for faster render time (but less appealing output) -->
-			<integer name="sampleCount" value="32"/>
+			<!-- 32 Settings for faster render time (but less appealing output) -->
+			<integer name="sampleCount" value="256"/>
 		</sampler>
 
 		<film type="ldrfilm">
@@ -54,24 +54,27 @@
 	</sensor>
 	<!-- cloth -->
 	<shape type="obj">
-		<string name="filename" value="mesh.obj"/>
+		<string name="filename" value="mesh33.obj"/>
 		<bsdf type="twosided">
 			<bsdf type="diffuse">
-				<rgb name="diffuseReflectance" value="0.2, 0.6, 0.3"/>
+				<rgb name="diffuseReflectance" value="0.5, 0.2, 0.3"/>
+			</bsdf>
+			<bsdf type="diffuse">
+				<rgb name="diffuseReflectance" value="0.25, 0.95, 0.95"/>
 			</bsdf>
 		</bsdf>
 	</shape>
 
 	<!-- obstacles -->
-	<!-- <shape type="obj">
+	<shape type="obj">
 		<string name="filename" value="obs_00.obj"/>
-		<transform name="trafoProperty"> 
+		<transform name="toWorld"> 
 			<rotate angle="0.000000" x="1.000000" y="1.000000" z="1.000000"/>
-			<scale value="1.000000"/>
-			<translate x="-1.000000" y="-1.500000" z="1.000000"/>
+			<scale value="1.00000"/>
+			<translate x="-0.500000" y="-1.400000" z="-0.959360"/>
 		</transform>	
 		<bsdf type="diffuse">
-			<rgb name="diffuseReflectance" value="0.1, 0.75, 0.1"/>
+			<rgb name="diffuseReflectance" value="0.9, 0.75, 0.6"/>
 		</bsdf>	
-	</shape> -->
+	</shape>
 </scene>
