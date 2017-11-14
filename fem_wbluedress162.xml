@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<scene version="0.5.0">
+	<integrator type="direct"/>
+	<!-- Light source -->
+
+	<shape type="sphere">
+		<point name="center" x="10" y="-1" z="10.2"/>
+		<float name="radius" value="2"/>
+
+		<emitter type="area">
+			<spectrum name="radiance" value="75"/>
+		</emitter>
+
+		<bsdf type="diffuse"/>
+	</shape>
+	<!-- Ground plane -->
+
+	<shape type="obj">
+		<string name="filename" value="plane.obj"/>
+		<transform name="toWorld">
+			<translate x="0" y="-1.0" z="0"/>
+			<rotate x="0.000000" y="0.000000" z="1.000000" angle="-90.000000"/>
+		</transform>
+
+		<bsdf type="diffuse">
+			<rgb name="diffuseReflectance" value="1.0, 1.0, 1.0"/>
+			<spectrum name="reflectance" value="0.5"/>
+		</bsdf>
+	</shape>
+
+	<sensor type="perspective">
+		<float name="focusDistance" value="10000"/>
+		<float name="fov" value="45"/>
+		<string name="fovAxis" value="x"/>
+		<transform name="toWorld">
+			<lookat target="0, -0.2, 1.0" origin="3, -0.5, 2" up="0, 0, 1"/>
+		</transform>
+
+		<sampler type="ldsampler">
+			<integer name="sampleCount" value="256"/>
+		</sampler>
+
+		<film type="ldrfilm">
+			<boolean name="banner" value="false"/>
+			<float name="exposure" value="0"/>
+			<float name="gamma" value="-1"/>
+			<integer name="height" value="2056"/>
+			<string name="pixelFormat" value="rgb"/>
+			<string name="tonemapMethod" value="gamma"/>
+			<integer name="width" value="2056"/>
+			<rfilter type="gaussian"/>
+		</film>
+	</sensor>
+	<!-- cloth -->
+	<shape type="obj">
+		<string name="filename" value="00162_00.obj"/>
+		<transform name="toWorld">
+			<rotate angle="90.000000" x="0.000000" y="0.000000" z="1.000000"/>
+			<translate x="-0.098" y="0.0" z="1.0"/>
+		</transform>
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<rgb name="reflectance" value="0.0, 0.8, 1.0"/>
+			</bsdf>
+			<bsdf type="diffuse">
+				<rgb name="reflectance" value="1.0, 1.0, 0.0"/>
+			</bsdf>
+		</bsdf>
+	</shape>
+	<!-- obstacles --><!-- frame: 162 -->
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0000.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="8.701998" x="0.258666" y="0.920104" z="0.294156"/> 
+		<translate x="0.416526" y="-0.287926" z="1.528310"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0001.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="52.528684" x="0.615618" y="-0.332146" z="-0.714627"/> 
+		<translate x="0.430293" y="-0.054996" z="1.234840"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0002.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="44.350110" x="-0.650651" y="-0.301305" z="0.697048"/> 
+		<translate x="0.412771" y="-0.516363" z="1.221660"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0003.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="110.315630" x="-0.008824" y="-0.861026" z="-0.508485"/> 
+		<translate x="0.588798" y="-0.068107" z="1.115050"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0004.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="115.768016" x="0.038756" y="-0.905230" z="0.423153"/> 
+		<translate x="0.556134" y="-0.505489" z="1.115200"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0005.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="7.061296" x="0.144964" y="-0.981453" z="-0.125431"/> 
+		<translate x="0.374053" y="-0.284286" z="1.285150"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0006.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="2.608116" x="0.065577" y="-0.946259" z="-0.319240"/> 
+		<translate x="0.391088" y="-0.282719" z="1.108000"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0007.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="10.300142" x="-0.727187" y="-0.684512" z="0.050700"/> 
+		<translate x="0.400610" y="-0.291871" z="0.932350"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0008.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="7.786981" x="-0.415420" y="-0.235391" z="0.878705"/> 
+		<translate x="0.424897" y="-0.215804" z="0.622914"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0009.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="19.040644" x="-0.267277" y="-0.759450" z="-0.593131"/> 
+		<translate x="0.459304" y="-0.430449" z="0.658256"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0010.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="19.616083" x="-0.223748" y="0.921914" z="0.316288"/> 
+		<translate x="0.383323" y="-0.228193" z="0.255708"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0011.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="26.026509" x="-0.045990" y="0.878440" z="-0.475640"/> 
+		<translate x="0.448324" y="-0.465157" z="0.304140"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0012.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="29.556630" x="-0.017020" y="0.012780" z="0.999769"/> 
+		<translate x="0.354419" y="-0.225748" z="0.024350"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0013.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="39.249998" x="0.150965" y="0.718219" z="-0.679245"/> 
+		<translate x="0.376210" y="-0.467306" z="0.075184"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0014.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="142.317034" x="0.102910" y="-0.922800" z="0.371282"/> 
+		<translate x="0.685994" y="-0.386230" z="1.176770"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+	<shape type="obj"> 
+	<string name="filename" value="female-objs/body0015.obj"/> 
+	<transform name="toWorld"> 
+		<rotate angle="142.494611" x="-0.161845" y="-0.875922" z="-0.454495"/> 
+		<translate x="0.712842" y="-0.199016" z="1.146480"/> 
+		<scale value="1.00000"/> 
+	</transform> 
+	<bsdf type="diffuse">
+		<texture type="bitmap" name="diffuseReflectance">
+	    <string name="filename" value="wood.png"/>
+	  </texture>
+	</bsdf>
+	</shape>
+</scene>
